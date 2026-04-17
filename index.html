@@ -21,7 +21,8 @@
         <div>
         <!-- input:text#tarefaInput -->
         <input type="text"  placeholder="Digite uma tarefa" id="tarefaInput">
-        <button onclick="">Adicionar</button>
+        <button onclick="adicionarTarefa()
+        ">Adicionar</button>
     </div>
 
     <ul id="ListaTarefas"></ul>
@@ -35,12 +36,26 @@
 
         function AdicionarTarefa(){
             const input = document.getElementById('tarefaInput');
-            const tarefa = input.value.trim();
+            const tarefa = input.value.trim(); // remove espaço desnecessários
             if(tarefa){
                 tarefas.push(tarefa);
                 input.value = '';
                 atualizarLista(); // função que ainda vamos criar
             }
+        }
+
+        function removerTarefa(index){
+            tarefas.splice(index, 1);
+            atualizarLista(); // funçaõ que ainda vamos criar
+        }
+
+        function atualizarLista(){
+            const lista = document.getElementById('listaTarefas');
+            lista.innerHTML = '';
+            tarefas.forEach((tarefa, index) => {
+                const li = document.createElement('li');
+                li.innerHTML='${tarefa}<button onclick="removerTarefa(${index}")>Remover</button>';
+            });
         }
     </script>
 </body>

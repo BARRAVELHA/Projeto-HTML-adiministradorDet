@@ -3,7 +3,7 @@ body{
     text-align: center;
     margin: 0;
     min-height: 100vh;
-    background: linear-gradient(45deg, #ff0000, #1212e7, #f700ff, #00c3ff, #c8ff00, #ff0000);
+    background: linear-gradient(45deg, #ff0000, #1212e7, #00c3ff, #00c3ff, #c8ff00, #ff0000);
     color: rgb(0, 0, 0);
     justify-content: center;
     align-items: center; 

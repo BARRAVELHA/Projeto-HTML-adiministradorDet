@@ -3,38 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>To-Do-List</title>
 </head>
 <body>
     <header>
         <h1>Lista de Tarefas</h1>
         <nav>
-            <!-- links de navegação corrigidas com âncoras -->
-             <a href=""Inicio</a>
-             <a href=""Tarefas</a>
-             <a href=""Contato</a>
+            <!-- Links de navegação corrigidos com as âncoras -->
+             <a href="">Inicio</a>
+             <a href="">Tarefas</a>
+             <a href="">Contato</a>
         </nav>
     </header>
-     
+
     <div id="inicio" class="container">
         <h2>Adicionar nova tarefa</h2>
         <div>
-        <!-- input:text#tarefaInput -->
-        <input type="text"  placeholder="Digite uma tarefa" id="tarefaInput">
-        <button onclick="adicionarTarefa()
-        ">Adicionar</button>
-    </div>
+            <!-- input:text#tarefaInput -->
+            <input type="text" placeholder="Digite uma tarefa" id="tarefaInput">
+            <button onclick="adicionarTarefa()">Adicionar</button>
+        </div>
 
-    <ul id="ListaTarefas"></ul>
+        <ul id="listaTarefas"></ul>
     </div>
-
-    <footer id="COntato">
-        <p>&copy; 2026 SENAI. Todos os direito reservador.</p>
+    <footer id="Contato">
+        <p>&copy; 2026 SENAI. Todos os direitos reservados.</p>
     </footer>
     <script>
         let tarefas = [];
 
-        function AdicionarTarefa(){
+        function adicionarTarefa(){
             const input = document.getElementById('tarefaInput');
             const tarefa = input.value.trim(); // remove espaço desnecessários
             if(tarefa){
@@ -46,7 +45,7 @@
 
         function removerTarefa(index){
             tarefas.splice(index, 1);
-            atualizarLista(); // funçaõ que ainda vamos criar
+            atualizarLista(); // função que ainda vamos criar
         }
 
         function atualizarLista(){
@@ -54,7 +53,9 @@
             lista.innerHTML = '';
             tarefas.forEach((tarefa, index) => {
                 const li = document.createElement('li');
-                li.innerHTML='${tarefa}<button onclick="removerTarefa(${index}")>Remover</button>';
+                li.innerHTML=`${tarefa} <button 
+                    onclick="removerTarefa(${index})">Remover</button>`;
+                    lista.appendChild(li);
             });
         }
     </script>
